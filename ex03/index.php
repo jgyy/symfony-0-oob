@@ -21,8 +21,6 @@ $html->pushElement($body);
 $engine = new TemplateEngine($html);
 $engine->createFile('output.html');
 
-echo "HTML file has been generated successfully!\n";
-
 echo "HTML file generated successfully!\n";
 echo "python3 -m http.server 8080\n";
 
