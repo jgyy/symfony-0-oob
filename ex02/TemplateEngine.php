@@ -6,18 +6,13 @@ class TemplateEngine {
         $reflection = new ReflectionClass($beverage);
         $fileName = strtolower($reflection->getShortName()) . '.html';
 
-        $properties = $reflection->getProperties();
-        $replacements = [];
-
-        foreach ($properties as $property) {
-            $property->setAccessible(true);
-            $name = $property->getName();
-            $getterMethod = 'get' . ucfirst($name);
-            if (method_exists($beverage, $getterMethod)) {
-                $value = $beverage->$getterMethod();
-                $replacements['{' . $name . '}'] = $value;
-            }
-        }
+        $replacements = [
+            '{nom}' => $beverage->getName(),
+            '{price}' => $beverage->getPrice(),
+            '{resistance}' => $beverage->getResistance(),
+            '{description}' => $beverage->getDescription(),
+            '{comment}' => $beverage->getComment()
+        ];
 
         $content = strtr($template, $replacements);
         file_put_contents($fileName, $content);
