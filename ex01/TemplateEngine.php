@@ -1,7 +1,6 @@
 <?php
 
 class TemplateEngine {
-    // This createFile is different from ex00
     public function createFile(string $fileName, Text $text): void {
         $htmlContent = "<!DOCTYPE html>\n<html>\n<head>\n";
         $htmlContent .= "<meta charset=\"UTF-8\">\n";
