@@ -21,11 +21,11 @@ class Elem {
         $this->attributes = $attributes;
     }
 
-    public function pushElement(Elem $elem) {
+    public function pushElement(Elem $elem): void {
         $this->elements[] = $elem;
     }
 
-    private function renderAttributes() {
+    private function renderAttributes(): string {
         if (empty($this->attributes)) {
             return '';
         }
@@ -37,7 +37,7 @@ class Elem {
         return ' ' . implode(' ', $attrs);
     }
 
-    public function getHTML() {
+    public function getHTML(): string {
         $voidElements = ['meta', 'img', 'hr', 'br'];
         if (in_array($this->tag, $voidElements)) {
             return sprintf('<%s%s />', $this->tag, $this->renderAttributes());

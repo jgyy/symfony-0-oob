@@ -18,11 +18,11 @@ class Elem {
         $this->content = $content;
     }
 
-    public function pushElement(Elem $elem) {
+    public function pushElement(Elem $elem): void {
         $this->elements[] = $elem;
     }
 
-    public function getHTML() {
+    public function getHTML(): string {
         $selfClosing = ['meta', 'img', 'hr', 'br'];
         if (in_array($this->tag, $selfClosing)) {
             return "<{$this->tag}>";
