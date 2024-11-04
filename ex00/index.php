@@ -12,11 +12,7 @@ $parameters = [
 try {
     $engine = new TemplateEngine();
 
-    $engine->createFile(
-        'output.html',
-        'book_description.html',
-        $parameters
-    );
+    $engine->createFile('output.html', 'book_description.html', $parameters);
     
     echo "HTML file generated successfully!\n";
     echo "python3 -m http.server 8080\n";
